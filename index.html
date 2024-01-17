@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/p5.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.4.0/addons/p5.sound.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fontisto@v3.0.4/css/fontisto/fontisto.min.css">
+    </i>
+    <link rel="stylesheet" type="text/css" href="style.css">
+    <meta charset="utf-8" />
+    <style>
+        #container {
+            display: flex;
+        }
+
+        #statis {
+            width: 500px;
+            height: 200px;
+        }
+
+        #controls {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin-left: 20px; /* Adjust the distance between the two elements */
+        }
+
+        #controls h3 {
+            margin: 0;
+            font-size: 1.4rem;
+        }
+
+        #controls #autorun {
+            border-radius: 50%;
+            width: 105px;
+            height: 105px;
+            padding: 0;
+            font-size: 1rem;
+            margin-top: 10px; /* Adjust the distance from the "Automatic" label */
+        }
+    </style>
+
+</head>
+
+<body>
+    <center>
+        <h2> Monty Hall Simulation </h2>
+    </center>
+    <main id="container">
+        <div id="doors"></div>
+        <div id="instruction">
+            <p>Pick a Door!</p>
+            <div class="choices">
+                <button id="yes">YES</button>
+                <button id="no">NO</button>
+            </div>
+            <button id="play-again">PLAY AGAIN?</button>
+        </div>
+        <fieldset id="statis">
+            <div id="stats">
+                <div id="switches">
+                    <p>Total Switches: <span class="total">0</span></p>
+                    <div class="bar">
+                        <span class="win-rate">0%</span>
+                    </div>
+                </div>
+                <div id="stays">
+                    <p>Total Stays: <span class="total">0</span></p>
+                    <div class="bar">
+                        <span class="win-rate">0%</span>
+                    </div>
+                </div>
+            </div>
+        </fieldset>
+
+        <div id="controls">
+            <h3>Automatic</h3>
+            <label>
+                No. of doors:&nbsp;
+                <select id="nb-doors" autocomplete="off">
+                    <option value="3" selected>3</option>
+                    <option value="4">4</option>
+                    <option value="5">5</option>
+                    <option value="10">10</option>
+                    <option value="25">25</option>
+                    <option value="50">50</option>
+                </select>
+            </label>
+            <button id="autorun" class="play">Auto run</button>
+            <input type="range" id="speed-slider" min="20" max="1000" value="500" step="1" />
+        </div>
+
+    </main>
+    <script src="sketch.js"></script>
+</body>
+
+</html>
